@@ -1,0 +1,63 @@
+
+<html>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites places in Hawaii</title>
+<head>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list {
+            list-style-type: none;
+            padding: 10;
+        }
+
+        #map {
+            height: 100%;
+        }
+
+        .options-box {
+            float: left;
+            width: 25%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="options-box">
+            <h1>Favorite Places - Kailua, Hawaii</h1>
+            <hr>
+            <div>
+                <input id="show-places" type="button" value="Show markers">
+                <input id="hide-places" type="button" value="Hide markers">
+            </div>
+            <hr>
+            <div>
+                <form>
+                    <input type="text" name="search" placeholder="Search" autocomplete="off" data-bind="textInput: searchItem, event: {keyup: runLocationSearch}">
+                </form>
+            </div>
+            <div class="Hawaii-location">
+                <ul class= "list", data-bind="foreach: hawaiiLocations">
+                    <li data-bind="text: title"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="map"> </div>
+
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB57VdEazs64ftn_L8meHbzzgC-Ag5QJqo&callback=locationVM.initMap"onerror="errorHandling()">
+    </script>
+    <script type='text/javascript' src='knockout.js'></script>
+    <script type='text/javascript' src='map.js'></script>
+</body>
+
+</html>
